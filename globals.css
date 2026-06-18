@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  @apply font-sans bg-primary text-accent dark:bg-dark dark:text-white m-0 p-0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  @apply max-w-mobile mx-auto min-h-screen relative shadow-lg;
+}
+
+/* Neumorphism */
+.neo-card {
+  @apply bg-secondary dark:bg-dark-light rounded-4xl shadow-neo dark:shadow-neo-dark p-4;
+}
+
+.glass-card {
+  @apply bg-white/80 dark:bg-dark-light/80 backdrop-blur-lg rounded-4xl shadow-glass p-4;
+}
+
+/* Story ring animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.story-ring {
+  @apply relative rounded-full p-0.5 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600;
+}
+.story-ring::before {
+  content: '';
+  @apply absolute inset-0 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600;
+  animation: spin 2s linear infinite;
+  z-index: -1;
+}
+
+/* Scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
